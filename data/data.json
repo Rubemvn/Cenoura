@@ -1,0 +1,28 @@
+{
+  "votes": {
+    "madalena": 2,
+    "zero-papo": 2
+  },
+  "votersData": [
+    {
+      "name": "Rúbem Vieira",
+      "email": "rubemvn17@gmail.com",
+      "vote": "madalena"
+    },
+    {
+      "name": "Carlos Eduardo",
+      "email": "eduardocarlos@gmail.com",
+      "vote": "zero-papo"
+    },
+    {
+      "name": "Rúbem Vieira",
+      "email": "rubemvn18@gmail.com",
+      "vote": "madalena"
+    },
+    {
+      "name": "Rúbem Vieira",
+      "email": "rubemvn0@gmail.com",
+      "vote": "zero-papo"
+    }
+  ]
+}
