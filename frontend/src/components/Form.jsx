@@ -1,46 +1,39 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
+import './componentsStyles/Form.css'
 
-const Form = () => {
+const Form = ({ startVotation }) => {
+
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
-  const [vote, setVote] = useState("")
+  const letterInputRef = useRef(null)
 
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    startVotation(name, email)
+    // console.log(name, email)
+  }
 
   return (
-    <div>
-      <form >
+    <div className='formContent'>
+      <form className='form'
+        onSubmit={handleSubmit}>
         <input
+          className='inputText'
           type="text"
           placeholder="Digite seu nome aqui..."
           required
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setName(e.target.value.toLowerCase())}
         />
         <input
+          className='inputText'
           type="email"
-          placeholder="Digite seu email"
-          required 
-          onChange={(e) => setName(e.target.value)}
-          />
+          placeholder="Digite seu email..."
+          required
+          onChange={(e) => setEmail(e.target.value.toLowerCase())}
+        />
 
-        <label>
-          <input
-            type="radio"
-            value="madalena"
-            name='apelidoFav' />
-          <span>Madalena</span>
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            value="zero-papo"
-            name='apelidoFav' />
-          <span>Zero-Papo</span>
-        </label>
-
-        <input
-          type="submit"
-          value="Votar" />
+        <button className='goToVotation'>Ir para Votação</button>
       </form>
     </div>
   )

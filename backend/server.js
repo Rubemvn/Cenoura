@@ -21,8 +21,8 @@ app.post('/api/vote', (req, res) => {
   // verifica se o usuário já votou
   const existingVoter = data.votersData.find((voter) => voter.email === email);
   if (existingVoter) {
-    res.status(400).json({ message: 'Você já votou!' });
-  } else {
+    res.status(400).json({ message: 'E-mail já foi usado, tente novamente!' , status: false});
+  } else if(vote){
     // Registra o voto
     data.votes[vote]++;
     data.votersData.push({name, email, vote})
@@ -30,6 +30,8 @@ app.post('/api/vote', (req, res) => {
     // salvando os dados e o voto no Banco de Dados(JSON)
     fs.writeFileSync('../data/data.json', JSON.stringify(data, null, 2),'utf-8')
     res.json({message: 'Voto registrado com sucesso!'})
+  } else {
+    res.json({message: 'ok, você pode votar', status: true})
   }
 });
 
