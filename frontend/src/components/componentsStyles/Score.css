@@ -50,3 +50,25 @@
   font-size: 4rem;
   font-weight: 700;
 }
+
+
+@media screen and (max-width: 768px){
+  .score {
+    scale: .8;
+  }
+}
+@media screen and (max-width: 590px){
+  .score {
+    scale: .6;
+  }
+}
+@media screen and (max-width: 440px){
+  .score {
+    scale: .5;
+  }
+}
+@media screen and (max-width: 375px){
+  .score {
+    scale: .4;
+  }
+}

@@ -44,3 +44,9 @@
 .goToVotation:hover {
   background-color: #FF7300;
 }
+
+@media screen and (max-width: 380px){
+  .form {
+    scale: .85;
+  }
+}

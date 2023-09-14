@@ -1,21 +1,40 @@
-import "./componentsStyles/Score.css"
+import { useState, useEffect } from "react";
+import "./componentsStyles/Score.css";
+
+const fetchData = async () => {
+  const response = await fetch("http://localhost:3000/api/votes");
+  const data = await response.json()
+  return data;
+};
 
 const Score = () => {
+  const [votes, setVotes] = useState("");
+
+  useEffect(() => {
+    // A chamada da função `fetchData()` é movida para fora da função `Score()`
+    const fetchDataAsync = async () => {
+      const data = await fetchData();
+      setVotes(data);
+    };
+
+    fetchDataAsync();
+  }, []);
+
+
   return (
-    <div className='score'>
-      <div className='madalena'>
+    <div className="score">
+      <div className="madalena">
         <h1>MADALENA</h1>
-        <p className="votes">0</p>
+        <p className="votes">{votes.madalena}</p>
       </div>
 
       <div className="x"><h1>X</h1></div>
-      
-      <div className='zeroPapo'>
-        <p className="votes">0</p>
-        <h1>ZERO-PAPO</h1>
-      </div>
-    </div>
-  )
-}
 
-export default Score
+      <div className="zeroPapo">
+        <p className="votes">{votes.zero_papo}</p>
+        <h1>ZERO-PAPO</h1></div>
+    </div>
+  );
+};
+
+export default Score;

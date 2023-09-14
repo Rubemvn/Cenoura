@@ -18,7 +18,7 @@
   justify-content: center;
   padding: 5px 20px;
   transition: all .1s linear;
-
+  
   -webkit-user-select:none;  
   -moz-user-select:none;     
   -ms-user-select:none;      
@@ -36,4 +36,21 @@
 
 .chosenCandidate:hover{
   background-color: #dd6300;
+}
+
+.vote {
+  background-color: #31147c;
+  border: none;
+  font-family: 'Roboto';
+  font-size: 2rem;
+  padding: 7px 30px;
+  color: white;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all .1s linear;
+}
+
+.vote:hover {
+  background-color: #2c1070;
+  scale: 1.05;
 }
