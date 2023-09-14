@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import "./componentsStyles/Score.css";
 
 const fetchData = async () => {
-  const response = await fetch("http://localhost:3000/api/votes");
+  const response = await fetch("https://cenoura.vercel.app/api/votes");
   const data = await response.json()
   return data;
 };
