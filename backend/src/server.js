@@ -14,7 +14,7 @@ app.use(cors({
 
 // Rota para obter a contagem dos votos
 app.get('/api/votes', (req, res) => {
-  const data = JSON.parse(fs.readFileSync('./../data/data.json', 'utf-8'));
+  const data = JSON.parse(fs.readFileSync('./data/data.json', 'utf-8'));
   // console.log(data.votes);
 
 
@@ -24,7 +24,7 @@ app.get('/api/votes', (req, res) => {
 // Rota para um novo voto
 app.post('/api/vote', (req, res) => {
   const { name, email, vote } = req.body;
-  const data = JSON.parse(fs.readFileSync('./../data/data.json', 'utf-8'));
+  const data = JSON.parse(fs.readFileSync('./data/data.json', 'utf-8'));
 
 
   // verifica se o usuário já votou
@@ -38,7 +38,7 @@ app.post('/api/vote', (req, res) => {
     data.votes[vote]++;
     data.votersData.push({name, email, vote})
     // salvando os dados e o voto no Banco de Dados(JSON)
-    fs.writeFileSync('./../data/data.json', JSON.stringify(data, null, 2),'utf-8')
+    fs.writeFileSync('../data/data.json', JSON.stringify(data, null, 2),'utf-8')
     res.status(200).json({message: 'Voto registrado com sucesso!'})
   
   }
